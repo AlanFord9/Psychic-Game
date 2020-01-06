@@ -8,14 +8,11 @@
 
 <body>
 
-
-  <!-- dont repeat capitalization guess text -->
   <div>
       <h1>The Psychic Game</h1>
     <p id="directions-text">Guess what letter I'm thinking of...</p>
     <p id="wins-text">Wins: 0 </p>
     <p id="losses-text">Losses: 0</p>
-    <!-- remove hardcode for guesses -->
     <p id="remaining-guesses-text">Guesses Left: 9</p>
     <p id="previous-guesses-text">Your Guesses so far: </p>
   </div>
@@ -46,9 +43,11 @@
       // This logic determines the outcome of the game (win/loss/tie), and increments the appropriate number
       if (userGuess === computerGuess) {
         wins++;
+        reset();
       } else {
         if (guesses === 0) {
          losses++;
+         reset();
         } else {
           guesses--;
           userGuesses.push(userGuess);
