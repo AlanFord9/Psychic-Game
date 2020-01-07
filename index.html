@@ -16,55 +16,7 @@
     <p id="remaining-guesses-text">Guesses Left: 9</p>
     <p id="previous-guesses-text">Your Guesses so far: </p>
   </div>
-
-  <script type="text/javascript">
-    // Creates an array that lists out all of the options (Rock, Paper, or Scissors).
-    var computerChoices = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-    // Creating variables to hold the number of wins, losses, and ties. They start at 0.
-    var wins = 0;
-    var losses = 0;
-    var maxGuesses = 9;
-    var guesses = maxGuesses;
-    // Create variables that hold references to the places in the HTML where we want to display things.
-    var directionsText = document.getElementById("directions-text");
-    var winsText = document.getElementById("wins-text");
-    var lossesText = document.getElementById("losses-text");
-    var remainingGuessesText = document.getElementById("remaining-guesses-text");
-    var previousGuessesText = document.getElementById("previous-guesses-text");
-  //  Fill in array
-    var userGuesses = []
-    // This function is run whenever the user presses a key.
-    document.onkeyup = function(event) {
-      // Determines which key was pressed.
-      var userGuess = event.key;
-      // Randomly chooses a choice from the options array. This is the Computer's guess.
-      var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
-      // Reworked our code from last step to use "else if" instead of lots of if statements.
-      // This logic determines the outcome of the game (win/loss/tie), and increments the appropriate number
-      if (userGuess === computerGuess) {
-        wins++;
-        reset();
-      } else {
-        if (guesses === 0) {
-         losses++;
-         reset();
-        } else {
-          guesses--;
-          userGuesses.push(userGuess);
-        }
-      }
-
-      function reset(){
-        userGuesses = [];
-        guesses = maxGuesses;
-      }
-        // Display the user and computer guesses, and wins/losses/ties.
-        winsText.textContent = "Wins: " + wins;
-        lossesText.textContent = "Losses: " + losses;
-        remainingGuessesText.textContent = "Guesses Left: " + guesses;
-        previousGuessesText.textContent = "Your Guesses so far: " + userGuesses;
-      };
-  </script>
+  <script src="/assets/javascript/game.js"></script>
 
 </body>
 
